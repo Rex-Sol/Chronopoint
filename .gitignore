@@ -1,0 +1,47 @@
+# This .gitignore file should contain files to ignore that are NOT # related to Unity and should be stored at the root of the repository # (not inside a Unity project folder). It will ensure git ignores temporary files stored in the Art and Design folders.
+*.tmp
+
+# Word temporary
+~$*.doc*
+
+# Excel temporary
+~$*.xls*
+
+# Excel Backup File
+*.xlk
+
+# PowerPoint temporary
+~$*.ppt*
+
+# Temp Blender files to ignore
+*.blend1
+
+# MacOS 
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+#Mac OS files to ignore
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
