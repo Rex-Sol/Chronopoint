@@ -6,7 +6,9 @@ using TMPro;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] private float moveSpeed;
+    private float moveSpeed;
+    [SerializeField] private float walkSpeed;
+    [SerializeField] private float sprintSpeed;
 
     [SerializeField] private float groundDrag;
 
@@ -15,13 +17,24 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float airMultiplier;
     private bool readyToJump;
 
+    [Header("Crouching")]
+    [SerializeField] private float crouchSpeed;
+    [SerializeField] private float crouchYScale;
+    private float startYScale;
+
     [Header("Keybinds")]
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
+    [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
 
     [Header("Ground Check")]
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask whatIsGround;
     private bool grounded;
+
+    [Header("Slope Handling")]
+    [SerializeField] private float maxSlopeAngle;
+    private RaycastHit slopeHit;
 
     [SerializeField] private Transform orientation;
    
@@ -31,6 +44,17 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection;
     
     private Rigidbody rb;
+    
+    [SerializeField] private movementState state;
+
+    [SerializeField] private enum movementState
+    {
+        walking,
+        sprinting,
+        crouching,
+        air
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
+
+        startYScale = transform.localScale.y;
     }
 
     // Update is called once per frame
@@ -48,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
 
         myInput();
         speedControl();
+        stateHandler();
 
         // handle drag
         if (grounded)
@@ -70,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        //myInput
+        // My Input
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
@@ -79,13 +106,60 @@ public class PlayerMovement : MonoBehaviour
 
             Invoke(nameof(resetJump), jumpCooldown);
         }
+
+        // Start Crouch
+        if(Input.GetKeyDown(crouchKey))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+        }
+
+        // stop crouch
+        if (Input.GetKeyUp(crouchKey))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+        }
     }
 
+    private void stateHandler()
+    {
+        // Mode - Crouching 
+        if (Input.GetKey(crouchKey))
+        {
+            state = movementState.crouching;
+            moveSpeed = crouchSpeed;
+        }
+
+        // Mode - Sprinting
+        else if (grounded && Input.GetKey(sprintKey))
+        {
+            state = movementState.sprinting;
+            moveSpeed = sprintSpeed;
+        }
+
+        // Mode - Walking
+        else if (grounded)
+        {
+            state = movementState.walking;
+            moveSpeed = walkSpeed;
+        }
+
+        // Mode - Air
+        else
+        {
+            state = movementState.air;
+        }
+    }
     private void movePlayer()
     {
         // calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
+        // on slope
+        if (onSlope())
+        {
+            rb.AddForce(getSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Impulse);
+        }
         // on ground
         if (grounded)
         {
@@ -122,5 +196,21 @@ public class PlayerMovement : MonoBehaviour
     private void resetJump()
     {
         readyToJump = true;
+    }
+    
+    private bool onSlope()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
+        {
+            float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            return (angle < maxSlopeAngle && angle != 0);
+        }
+
+        return false;
+    }
+
+    private Vector3 getSlopeMoveDirection()
+    {
+        return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4299061592557838616}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,17 +74,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d72231ff3ac6cbb439143cf09fbcbc79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  walkSpeed: 7
+  sprintSpeed: 10
   groundDrag: 5
   jumpForce: 8
   jumpCooldown: 0.25
   airMultiplier: 0.4
+  crouchSpeed: 3.5
+  crouchYScale: 0.5
   jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
   playerHeight: 2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   orientation: {fileID: 6902577517666209436}
+  state: 0
 --- !u!1 &3869312481215347528
 GameObject:
   m_ObjectHideFlags: 0
