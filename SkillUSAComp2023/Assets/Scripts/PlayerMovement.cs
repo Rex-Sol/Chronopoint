@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Slope Handling")]
     [SerializeField] private float maxSlopeAngle;
     private RaycastHit slopeHit;
+    private bool exitingSlope;
 
     [SerializeField] private Transform orientation;
    
@@ -156,9 +157,13 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // on slope
-        if (onSlope())
+        if (onSlope() && !exitingSlope)
         {
-            rb.AddForce(getSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Impulse);
+            rb.AddForce(getSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
+            if (rb.velocity.y > 0)
+            {
+                rb.AddForce(Vector3.down * 80f, ForceMode.Force);
+            }
         }
         // on ground
         if (grounded)
@@ -171,22 +176,39 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
+
+        // turn gravity off while on slope
+        rb.useGravity = !onSlope();
     }
 
     private void speedControl()
     {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        //limit velocity if needed
-        if (flatVel.magnitude > moveSpeed)
+        // limiting speed on slope
+        if (onSlope() && !exitingSlope)
         {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            if (rb.velocity.magnitude > moveSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * moveSpeed;
+            }
         }
+        //limiting speed on ground or in air
+        else
+        {
+            Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+            //limit velocity if needed
+            if (flatVel.magnitude > moveSpeed)
+            {
+                Vector3 limitedVel = flatVel.normalized * moveSpeed;
+                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            }
+        }   
     }
 
     private void jump()
     {
+        exitingSlope = true;
+
         // reset y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
@@ -195,6 +217,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void resetJump()
     {
+        exitingSlope = false;
+
         readyToJump = true;
     }
     

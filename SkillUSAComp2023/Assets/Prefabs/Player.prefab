@@ -89,8 +89,9 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
+  maxSlopeAngle: 40
   orientation: {fileID: 6902577517666209436}
-  state: 0
+  state: 3
 --- !u!1 &3869312481215347528
 GameObject:
   m_ObjectHideFlags: 0
