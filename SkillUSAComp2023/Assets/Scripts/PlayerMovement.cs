@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Keybinds")]
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
     [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
-    [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
+    [SerializeField] private KeyCode crouchKey = KeyCode.C;
 
     [Header("Ground Check")]
     [SerializeField] private float playerHeight;
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
@@ -159,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
         // on slope
         if (onSlope() && !exitingSlope)
         {
-            rb.AddForce(getSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
+            rb.AddForce(getSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
             if (rb.velocity.y > 0)
             {
                 rb.AddForce(Vector3.down * 80f, ForceMode.Force);
@@ -222,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
     }
     
-    private bool onSlope()
+    public bool onSlope()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
         {
@@ -233,8 +233,8 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    private Vector3 getSlopeMoveDirection()
+    public Vector3 getSlopeMoveDirection(Vector3 direction)
     {
-        return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
+        return Vector3.ProjectOnPlane(direction, slopeHit.normal).normalized;
     }
 }

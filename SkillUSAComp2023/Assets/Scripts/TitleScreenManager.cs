@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreenManager : MonoBehaviour
 {
-    public GameObject mainCanvas;
-    public GameObject settingsCanvas;
-    public GameObject creditsCanvas;
+    [SerializeField] private GameObject mainCanvas;
+    [SerializeField] private GameObject settingsCanvas;
+    [SerializeField] private GameObject creditsCanvas;
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         mainCanvas.gameObject.SetActive(true);
         settingsCanvas.gameObject.SetActive(false);
@@ -17,7 +17,7 @@ public class TitleScreenManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
