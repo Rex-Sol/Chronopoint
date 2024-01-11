@@ -23,8 +23,6 @@ public class Sliding : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
-    private bool sliding;
-
     // Start is called before the first frame update
     private void Start()
     {
@@ -45,7 +43,7 @@ public class Sliding : MonoBehaviour
             startSlide();
         }
 
-        if (Input.GetKeyUp(slideKey) && sliding)
+        if (Input.GetKeyUp(slideKey) && pm.sliding)
         {
             stopSlide();
         }
@@ -53,7 +51,7 @@ public class Sliding : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (sliding)
+        if (pm.sliding)
         {
             slidingMovement();
         }
@@ -61,7 +59,7 @@ public class Sliding : MonoBehaviour
 
     private void startSlide()
     {
-        sliding = true;
+        pm.sliding = true;
 
         playerObj.localScale = new Vector3(playerObj.localScale.x, slideYScale, playerObj.localScale.z);
         rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
@@ -94,7 +92,7 @@ public class Sliding : MonoBehaviour
 
     private void stopSlide()
     {
-        sliding = false;
+        pm.sliding = false;
 
         playerObj.localScale = new Vector3(playerObj.localScale.x, startYScale, playerObj.localScale.z);
     }
