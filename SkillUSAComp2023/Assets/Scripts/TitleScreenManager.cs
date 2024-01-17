@@ -48,7 +48,6 @@ public class TitleScreenManager : MonoBehaviour
 
     public void Quit()
     {
-        Debug.Log("balls");
         UnityEditor.EditorApplication.isPlaying = false;
     }
 }
