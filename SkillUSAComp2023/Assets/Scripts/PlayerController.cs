@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private float numOfDinoMeat;
     private float numOfRosary;
     private float numOfVinyl;
+    private float numOfBigMax;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         baseDamage = baseDamage + 0.0005f;
         baseHealth = baseHealth + (0.0005f * 30f);
-        trueHealth = baseHealth + (numOfDinoMeat * 20f) + (numOfRosary * 30f);
+        trueHealth = baseHealth + (numOfDinoMeat * 20f) + (numOfRosary * 30f) + (numOfBigMax *40f);
         trueDamage = baseDamage + (numOfVinyl * (.5f * baseDamage));
     }
 }
