@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2683133928062232860}
   - component: {fileID: 4299061592557838616}
   - component: {fileID: 5028875033694259671}
-  - component: {fileID: 7327679240518806579}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -116,22 +115,6 @@ MonoBehaviour:
   slideForce: 200
   slideYScale: 0.5
   slideKey: 306
---- !u!114 &7327679240518806579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3216618689729565944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5633f5c65999c243be8bad806c3d076, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseDamage: 8
-  trueDamage: 0
-  baseHealth: 150
-  trueHealth: 0
 --- !u!1 &3869312481215347528
 GameObject:
   m_ObjectHideFlags: 0
