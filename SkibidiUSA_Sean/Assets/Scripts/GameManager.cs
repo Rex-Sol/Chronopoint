@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         if (playerCurrentHealth < 0)
         {
             playerDead = true;
+            playerDeath();
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -50,6 +51,11 @@ public class GameManager : MonoBehaviour
         playerTrueHealth = playerBaseHealth + (numOfDinoMeat * 20f) + (numOfRosary * 30f) + (numOfBigMax * 40f);
         playerTrueDamage = playerBaseDamage + (numOfVinyl * (.5f * playerBaseDamage));
         healthSlide.size = playerCurrentHealth / playerTrueHealth;
+    }
+
+    public void playerDeath()
+    {
+        
     }
 }
 
