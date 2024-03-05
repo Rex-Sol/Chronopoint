@@ -11,14 +11,15 @@ public class ThrowingTutorial : MonoBehaviour
     public GameObject objectToThrow;
 
     [Header("Settings")]
-    public int totalThrows;
+    
     public float throwCooldown;
 
     [Header("Throwing")]
     public KeyCode throwKey = KeyCode.Mouse0;
     public float throwForce;
     public float throwUpwardForce;
-
+    [SerializeField] private bool allowButtonHold;
+        
     bool readyToThrow;
 
     private void Start()
@@ -37,7 +38,8 @@ public class ThrowingTutorial : MonoBehaviour
     private void Throw()
     {
         readyToThrow = false;
-
+       
+        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         // instantiate object to throw
         GameObject projectile = Instantiate(objectToThrow, attackPoint.position, cam.rotation);
 
@@ -59,7 +61,7 @@ public class ThrowingTutorial : MonoBehaviour
 
         projectileRb.AddForce(forceToAdd, ForceMode.Impulse);
 
-        totalThrows++;
+        
 
         // implement throwCooldown
         Invoke(nameof(ResetThrow), throwCooldown);

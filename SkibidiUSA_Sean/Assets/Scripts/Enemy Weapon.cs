@@ -14,6 +14,7 @@ public class EnemyWeapon : MonoBehaviour
     [SerializeField] private float timeBetweenReloading, spread, reloadTime, timeBetweenShots;
     [SerializeField] private int magazineSize, bulletsPerTap;
     [SerializeField] private bool allowButtonHold;
+        
 
     int bulletsLeft, bulletsShot;
     bool shooting, readyToShoot, reloading;
@@ -48,6 +49,7 @@ public class EnemyWeapon : MonoBehaviour
         }
     private void MyInput()
     {
+       
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
         if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
