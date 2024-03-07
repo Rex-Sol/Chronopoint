@@ -18,9 +18,9 @@ public class ThrowingTutorial : MonoBehaviour
     public KeyCode throwKey = KeyCode.Mouse0;
     public float throwForce;
     public float throwUpwardForce;
-    [SerializeField] private bool allowButtonHold;
+    
         
-    bool readyToThrow;
+    bool readyToThrow, shooting;
 
     private void Start()
     {
@@ -39,7 +39,6 @@ public class ThrowingTutorial : MonoBehaviour
     {
         readyToThrow = false;
        
-        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         // instantiate object to throw
         GameObject projectile = Instantiate(objectToThrow, attackPoint.position, cam.rotation);
 
