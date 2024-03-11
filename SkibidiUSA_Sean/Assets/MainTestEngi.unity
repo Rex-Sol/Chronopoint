@@ -19211,15 +19211,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6530396862257156420, guid: 84134fc4d1e0a624cb8eb9bbc0c23db5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7057185
+      value: -5.1
       objectReference: {fileID: 0}
     - target: {fileID: 6530396862257156420, guid: 84134fc4d1e0a624cb8eb9bbc0c23db5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7948721
+      value: 3.47
       objectReference: {fileID: 0}
     - target: {fileID: 6530396862257156420, guid: 84134fc4d1e0a624cb8eb9bbc0c23db5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6484699
+      value: -52.06
       objectReference: {fileID: 0}
     - target: {fileID: 6530396862257156420, guid: 84134fc4d1e0a624cb8eb9bbc0c23db5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -52431,9 +52431,13 @@ PrefabInstance:
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 1718787672}
+    - target: {fileID: 714129425254014237, guid: 7fd7fd03aeecd64468ea27efcfd93634, type: 3}
+      propertyPath: objectToThrow
+      value: 
+      objectReference: {fileID: 5082203939446302614, guid: f47d62264c60de34f951802f9b740a2d, type: 3}
     - target: {fileID: 2606064055245654883, guid: 7fd7fd03aeecd64468ea27efcfd93634, type: 3}
       propertyPath: m_Name
-      value: 'Player '
+      value: PlayerEngi
       objectReference: {fileID: 0}
     - target: {fileID: 3041847041707830672, guid: 7fd7fd03aeecd64468ea27efcfd93634, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52480,9 +52484,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 963194228}
     - target: {fileID: 3255172941782815686, guid: 7fd7fd03aeecd64468ea27efcfd93634, type: 3}
+      propertyPath: throwForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3255172941782815686, guid: 7fd7fd03aeecd64468ea27efcfd93634, type: 3}
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 1718787672}
+    - target: {fileID: 3255172941782815686, guid: 7fd7fd03aeecd64468ea27efcfd93634, type: 3}
+      propertyPath: throwUpwardForce
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4999635750032400380, guid: 7fd7fd03aeecd64468ea27efcfd93634, type: 3}
       propertyPath: cam
       value: 
