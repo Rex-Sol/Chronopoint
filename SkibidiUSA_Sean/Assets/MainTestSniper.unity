@@ -1130,11 +1130,15 @@ PrefabInstance:
     - target: {fileID: 1872147718269926649, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
       propertyPath: gunTip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1676937047}
     - target: {fileID: 1872147718269926649, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1872147718269926649, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
+      propertyPath: predictionPoint
+      value: 
+      objectReference: {fileID: 1675792066}
     - target: {fileID: 5241724375011539095, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1142,7 +1146,7 @@ PrefabInstance:
     - target: {fileID: 5241724375011539095, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
       propertyPath: attackPoint
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1131898958}
     - target: {fileID: 6509403649604715198, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
       propertyPath: m_Name
       value: PlayerSniper
@@ -1190,14 +1194,14 @@ PrefabInstance:
     - target: {fileID: 8014765898206273606, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
       propertyPath: lr
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1721523201}
     - target: {fileID: 8014765898206273606, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
       propertyPath: gunTip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1676937047}
     - target: {fileID: 8014765898206273606, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2812,6 +2816,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfc9a4df0363b874e9f3d8832521c30d, type: 3}
+--- !u!4 &1675792066 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4061894981195952981, guid: dfc9a4df0363b874e9f3d8832521c30d, type: 3}
+  m_PrefabInstance: {fileID: 1675792065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1676937046
 GameObject:
   m_ObjectHideFlags: 0
@@ -2967,7 +2976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1721523197
 Transform:
   m_ObjectHideFlags: 0
