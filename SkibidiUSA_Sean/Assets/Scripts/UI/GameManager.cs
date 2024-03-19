@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Scrollbar healthSlide;
 
+    [SerializeField] private Text scoreText;
+    [SerializeField] private float score;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +33,8 @@ public class GameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
+        scoreText.text = "Score " + score;
         if (playerCurrentHealth < 0)
         {
             playerDead = true;
@@ -51,5 +55,6 @@ public class GameManager : MonoBehaviour
         playerTrueDamage = playerBaseDamage + (numOfVinyl * (.5f * playerBaseDamage));
         healthSlide.size = playerCurrentHealth / playerTrueHealth;
     }
+
 }
 
