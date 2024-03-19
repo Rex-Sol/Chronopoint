@@ -913,6 +913,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649180158}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &743280986 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7694987760750194804, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
+  m_PrefabInstance: {fileID: 4833626358569329583}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &895455928 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4061894981195952981, guid: dfc9a4df0363b874e9f3d8832521c30d, type: 3}
@@ -1313,7 +1318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1964989070}
-  player: {fileID: 0}
+  player: {fileID: 743280986}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
@@ -1604,7 +1609,11 @@ PrefabInstance:
       objectReference: {fileID: 895455928}
     - target: {fileID: 6509403649604715198, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
       propertyPath: m_Name
-      value: PlayerCommando
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509403649604715198, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7553701112578777690, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
       propertyPath: text_mode
