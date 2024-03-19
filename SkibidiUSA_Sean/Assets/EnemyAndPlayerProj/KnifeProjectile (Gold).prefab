@@ -146,5 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8b0b071cfe168841a5f7600a721d3c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Knife: {fileID: 5082203939446302614}
   damage: 20
   destroyOnHit: 1

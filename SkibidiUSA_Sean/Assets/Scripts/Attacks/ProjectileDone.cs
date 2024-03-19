@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileDone : MonoBehaviour
 {
+    [SerializeField] private GameObject Knife;
     [Header("Settings")]
     public int damage;
     public bool destroyOnHit;
@@ -15,8 +16,15 @@ public class ProjectileDone : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-    }
 
+        StartCoroutine(WaitDestroy());
+         
+    }
+    IEnumerator WaitDestroy()
+    {
+        yield return new WaitForSeconds(10);
+        Destroy(Knife);
+     }
     private void OnCollisionEnter(Collision collision)
     {
         if (hitTarget)
@@ -41,4 +49,5 @@ public class ProjectileDone : MonoBehaviour
         // make sure projectile moves with target
         transform.SetParent(collision.transform);
     }
+    
 }
