@@ -22,7 +22,7 @@ public class ProjectileDone : MonoBehaviour
     }
     IEnumerator WaitDestroy()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(5);
         Destroy(Knife);
      }
     private void OnCollisionEnter(Collision collision)
