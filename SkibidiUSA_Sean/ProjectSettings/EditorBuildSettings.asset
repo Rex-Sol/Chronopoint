@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/2.)Character Select.unity
     guid: b0367fd466337fc4e94abae3df90a2e6
+  - enabled: 1
+    path: Assets/MainTestEngi.unity
+    guid: 774f7d10ebf33d34d96bb0539c979da5
+  - enabled: 1
+    path: Assets/MainTestCommando.unity
+    guid: 0d473ec1130cb874ea998fdbc9ec0099
   m_configObjects: {}
