@@ -443,7 +443,7 @@ GameObject:
   - component: {fileID: 959881359014664086}
   - component: {fileID: 4787072618805545693}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas - Copy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
