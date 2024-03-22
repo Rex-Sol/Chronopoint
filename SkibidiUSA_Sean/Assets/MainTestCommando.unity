@@ -7298,6 +7298,10 @@ PrefabInstance:
       propertyPath: predictionPoint
       value: 
       objectReference: {fileID: 895455928}
+    - target: {fileID: 5241724375011539095, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
+      propertyPath: objectToThrow
+      value: 
+      objectReference: {fileID: 2694213037385304130, guid: e475bad58150c7d4fb905a966b3a4123, type: 3}
     - target: {fileID: 6509403649604715198, guid: 41bdbb0a00b50854793a0c74dfa3789d, type: 3}
       propertyPath: m_Name
       value: Player
