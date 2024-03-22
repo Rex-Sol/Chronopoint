@@ -10,6 +10,7 @@ public class Grappling : MonoBehaviour
     public Transform gunTip;
     public LayerMask whatIsGrappleable;
     public LineRenderer lr;
+    public GameObject PlayerObj;
 
     [Header("Grappling")]
     public float maxGrappleDistance;
@@ -79,7 +80,7 @@ public class Grappling : MonoBehaviour
     {
         pm.freeze = false;
 
-        Vector3 lowestPoint = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z);
+        Vector3 lowestPoint = new Vector3(PlayerObj.transform.position.x, PlayerObj.transform.position.y - 1f, PlayerObj.transform.position.z);
 
         float grapplePointRelativeYPos = grapplePoint.y - lowestPoint.y;
         float highestPointOnArc = grapplePointRelativeYPos + overshootYAxis;

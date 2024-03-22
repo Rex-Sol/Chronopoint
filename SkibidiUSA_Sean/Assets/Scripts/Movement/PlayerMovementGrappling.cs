@@ -42,6 +42,10 @@ public class PlayerMovementGrappling : MonoBehaviour
     [Header("Camera Effects")]
     public PlayerCam cam;
     public float grappleFov = 95f;
+    public GameObject CameraHolder;
+    public float vX;
+    public float vY;
+    public float vZ;
 
     public Transform orientation;
 
@@ -95,6 +99,9 @@ public class PlayerMovementGrappling : MonoBehaviour
             rb.drag = 0;
 
         TextStuff();
+
+        CameraHolder.transform.position = transform.position;
+
     }
 
     private void FixedUpdate()
