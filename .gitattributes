@@ -1,2 +1,2 @@
-Main[[:space:]]Stage.obj filter=lfs diff=lfs merge=lfs -text
-Main[[:space:]]Stage.fbx filter=lfs diff=lfs merge=lfs -text
+Main[[:space:]]Stage[[:space:]]DENO.obj filter=lfs diff=lfs merge=lfs -text
+Main[[:space:]]Stage[[:space:]]DEMO.obj filter=lfs diff=lfs merge=lfs -text
