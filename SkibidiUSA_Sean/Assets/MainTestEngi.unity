@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 3c71f6a59151bc44a9a574764324773b, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e700ec837cfa7684485327218c5eedde, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.7302244, g: 0.7889752, b: 0.8498586, a: 1}
+  m_IndirectSpecularColor: {r: 0.5444019, g: 0.50700164, b: 0.5242697, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7500,6 +7500,10 @@ PrefabInstance:
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 1718787672}
+    - target: {fileID: 3255172941782815686, guid: 7fd7fd03aeecd64468ea27efcfd93634, type: 3}
+      propertyPath: objectToThrow
+      value: 
+      objectReference: {fileID: 5892132452817777273, guid: 590285a64251e1044ae17035c34d331e, type: 3}
     - target: {fileID: 3255172941782815686, guid: 7fd7fd03aeecd64468ea27efcfd93634, type: 3}
       propertyPath: throwUpwardForce
       value: 5
