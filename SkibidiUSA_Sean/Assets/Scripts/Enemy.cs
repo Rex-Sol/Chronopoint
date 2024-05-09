@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool isDead = false;
     private void Awake()
     {
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("PlayerSniper").transform;
         agent.GetComponent<NavMeshAgent>();
     }
     private void Update()
