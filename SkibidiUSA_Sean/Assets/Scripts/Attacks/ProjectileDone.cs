@@ -24,7 +24,7 @@ public class ProjectileDone : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         Destroy(Knife);
-     }
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (hitTarget)
