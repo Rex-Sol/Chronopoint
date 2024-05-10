@@ -5,6 +5,7 @@ public class Hitscan : MonoBehaviour
     public Transform firePoint;
     public GameObject enemyPrefab;
     public LineRenderer lineRenderer;
+    public ParticleSystem particleSystem;
 
     public int damage;
     public int range;
@@ -23,10 +24,12 @@ public class Hitscan : MonoBehaviour
    
     void Shoot()
     {
+        particleSystem.enabled = true;
         lineRenderer.enabled = true;
         RaycastHit hit;
         if (Physics.Raycast(firePoint.position, firePoint.forward, out hit, range))
         {
+            
             GameObject hitObject = hit.collider.gameObject;
             if (hitObject != null && hitObject.CompareTag("Enemy"))
             {
