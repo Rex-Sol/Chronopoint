@@ -24,7 +24,7 @@ public class Hitscan : MonoBehaviour
    
     void Shoot()
     {
-        particleSystem.enabled = true;
+       // particleSystem.enabled = true;
         lineRenderer.enabled = true;
         RaycastHit hit;
         if (Physics.Raycast(firePoint.position, firePoint.forward, out hit, range))
