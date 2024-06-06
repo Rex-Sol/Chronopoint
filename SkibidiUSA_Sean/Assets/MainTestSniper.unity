@@ -8930,7 +8930,7 @@ MonoBehaviour:
   firePoint: {fileID: 1114794761}
   enemyPrefab: {fileID: 1964989068}
   lineRenderer: {fileID: 1721523201}
-  MuzFlash: {fileID: 8161882}
+  particleSystem: {fileID: 0}
   damage: 20
   range: 100
 --- !u!64 &1732556464
